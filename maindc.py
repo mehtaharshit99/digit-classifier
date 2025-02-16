@@ -1,4 +1,4 @@
-# import numpy as np
+import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Input, Conv2D, MaxPooling2D, Flatten, Dense
@@ -57,7 +57,8 @@ uploaded_file = st.file_uploader("Choose a file", type=["png", "jpg", "jpeg"])
 if uploaded_file is not None:
     # Open and preprocess the uploaded image
     image = Image.open(uploaded_file).convert('L')  # Convert to grayscale
-    st.image(image, caption="Uploaded Image", use_column_width=True)
+    st.image(image, caption="Uploaded Image", use_container_width=True)
+
 
     # Resize to 28x28 and normalize
     image = ImageOps.fit(image, (28, 28), Image.LANCZOS)
